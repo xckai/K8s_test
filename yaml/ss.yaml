@@ -1,0 +1,33 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ss-service
+spec:
+  selector:
+    app: ss
+  ports:
+    - port: 8080
+      nodePort: 30000
+  type: NodePort
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: ss-backend
+spec:
+  selector:
+    matchLabels:
+      app: ss
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: ss
+    spec:
+      containers:
+      - name: ss
+        image: gcr.io/hello-world-208304/ss:latest
+        command: ['/go/shadowsocks2']
+        args: ['-s',"ss://AES-256-CFB:12345687@:8080",'--verbose']
+        ports:
+        - containerPort: 8080

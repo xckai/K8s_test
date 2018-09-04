@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: /Users/i326939/Desktop/Project/docker/gcloud/ca.crt
+    server: https://35.233.218.63:8443
+  name: minikube
+contexts:
+- context:
+    cluster: minikube
+    user: minikube
+  name: minikube
+current-context: minikube
+kind: Config
+preferences: {}
+users:
+- name: minikube
+  user:
+    client-certificate: /Users/i326939/Desktop/Project/docker/gcloud/cloud.crt
+    client-key: /Users/i326939/Desktop/Project/docker/gcloud/cloud.key
