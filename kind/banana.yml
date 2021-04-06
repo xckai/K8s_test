@@ -1,0 +1,28 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: apple-v2
+  labels:
+    app: apple-v2
+spec:
+  containers:
+    - name: apple-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple3"
+    - name: apple-app-2
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple2 -listen=:8080"
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: banana-service-v2
+spec:
+  type: NodePort
+  selector:
+    app: apple-v2
+  ports:
+    - port: 5678

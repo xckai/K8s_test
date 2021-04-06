@@ -9,7 +9,11 @@ spec:
     - name: apple-app
       image: hashicorp/http-echo
       args:
-        - "-text=apple"
+        - "-text=apple3"
+    - name: apple-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple2"
 
 ---
 kind: Service

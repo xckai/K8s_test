@@ -1,0 +1,25 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: apple-v16
+  labels:
+    app: apple-v16
+spec:
+  containers:
+    - name: apple-app-1
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple2"
+        - "-listen=:8888"
+    - name: apple-app-2
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple 8080 8888"
+        - "-listen=:8888"
+    - name: apple-app-3
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple 8080"
+        - "-listen=:8080"
+
+
