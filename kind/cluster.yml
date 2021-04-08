@@ -18,5 +18,26 @@ nodes:
       - containerPort: 8123
         hostPort: 8123
         protocol: TCP
+      - containerPort: 30001
+        hostPort: 30001
+        protocol: TCP
+      - containerPort: 30002
+        hostPort: 30002
+        protocol: TCP
+      - containerPort: 30003
+        hostPort: 30003
+        protocol: TCP
+      - containerPort: 30880
+        hostPort: 30880
+        protocol: TCP
+    extraMounts:
+    - hostPath: C:\Users\xckai\Desktop\Project\testPages
+      containerPath: /html
   - role: worker
+    extraMounts:
+    - hostPath: C:\Users\xckai\Desktop\Project\testPages
+      containerPath: /html
   - role: worker
+    extraMounts:
+    - hostPath: C:\Users\xckai\Desktop\Project\testPages
+      containerPath: /html
